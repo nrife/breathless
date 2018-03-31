@@ -1,6 +1,6 @@
 # breathless
+汉化
 pasted meme
-
 
 Added;
 Flip AA (fakehead),
