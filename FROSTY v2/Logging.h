@@ -31,6 +31,8 @@ struct AppLog
 
 		ImGui::TextUnformatted(Buf.begin());
 
+		ImGui::SetScrollHere(1.0f);
+
 		ImGui::End();
 	}
 };
