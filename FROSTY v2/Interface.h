@@ -337,13 +337,13 @@ void RenderInterface() {
 				ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.07, 0.07, 0.07, 1.f));
 				ImGui::PushStyleColor(ImGuiCol_ChildWindowBg, ImVec4(0.07f, 0.07f, 0.07f, 1.f));
 				ImGui::PushFont(fskeet);
-				if (ImGui::Button("a", ImVec2(100, 93)))
+				if (ImGui::Button(u8"暴力", ImVec2(100, 93)))
 					tabselected = 0;
-				if (ImGui::Button("b", ImVec2(100, 93)))
+				if (ImGui::Button(u8"微自瞄", ImVec2(100, 93)))
 					tabselected = 1;
-				if (ImGui::Button("c", ImVec2(100, 93)))
+				if (ImGui::Button(u8"视觉", ImVec2(100, 93)))
 					tabselected = 2;
-				if (ImGui::Button("d", ImVec2(100, 93)))
+				if (ImGui::Button(u8"杂项", ImVec2(100, 93)))
 					tabselected = 3;
 				if (ImGui::Button("e", ImVec2(100, 93)))
 					tabselected = 4; 
@@ -369,27 +369,27 @@ void RenderInterface() {
 					ImGui::BeginChild("##more ragebot stuff", ImVec2(310.f, 288.f));
 					{
 						//more ragebot settings
-						ImGui::Checkbox(XorStr("Active"), &g_Options.Ragebot.MainSwitch);
+						ImGui::Checkbox(XorStr(u8"激活"), &g_Options.Ragebot.MainSwitch);
 						ImGui::Spacing();
 						ImGui::Separator();
-						ImGui::Checkbox(XorStr("Enabled"), &g_Options.Ragebot.Enabled);
+						ImGui::Checkbox(XorStr(u8"启用"), &g_Options.Ragebot.Enabled);
 						ImGui::SliderFloat(XorStr("FOV"), &g_Options.Ragebot.FOV, 1.f, 180.f, "%.0f");
-						ImGui::Checkbox(XorStr("Silent Aim"), &g_Options.Ragebot.Silent);
-						ImGui::Checkbox(XorStr("AutoPistol"), &g_Options.Ragebot.AutoPistol);
-						ImGui::Checkbox(XorStr("NoRecoil"), &g_Options.Ragebot.AntiRecoil);
+						ImGui::Checkbox(XorStr(u8"静默瞄准"), &g_Options.Ragebot.Silent);
+						ImGui::Checkbox(XorStr(u8"自动手枪"), &g_Options.Ragebot.AutoPistol);
+						ImGui::Checkbox(XorStr(u8"无后座"), &g_Options.Ragebot.AntiRecoil);
 
-						ImGui::Checkbox(XorStr("Auto Stop"), &g_Options.Ragebot.AutoStop);
+						ImGui::Checkbox(XorStr(u8"自动急停"), &g_Options.Ragebot.AutoStop);
 						ImGui::Hotkey(XorStr("##autostop key"), &g_Options.Ragebot.autostopkey);
 
-						ImGui::Checkbox(XorStr("Auto Crouch"), &g_Options.Ragebot.AutoCrouch);
-						ImGui::Checkbox(XorStr("Auto Scope"), &g_Options.Ragebot.AutoScope);
+						ImGui::Checkbox(XorStr(u8"自动蹲下"), &g_Options.Ragebot.AutoCrouch);
+						ImGui::Checkbox(XorStr(u8"自动范围"), &g_Options.Ragebot.AutoScope);
 
 
-						ImGui::Checkbox(XorStr("Anti-Aim Enabled"), &g_Options.Ragebot.EnabledAntiAim);
+						ImGui::Checkbox(XorStr(u8"反自瞄启用"), &g_Options.Ragebot.EnabledAntiAim);
 
 
 
-						ImGui::Checkbox(XorStr("Auto Fire"), &g_Options.Ragebot.AutoFire);
+						ImGui::Checkbox(XorStr(u8"自动开火"), &g_Options.Ragebot.AutoFire);
 					}
 					ImGui::EndChild();
 
@@ -398,7 +398,7 @@ void RenderInterface() {
 					ImGui::BeginChild("##aimbot stuff", ImVec2(310.f, 288.f));
 					{
 						// ragebot misc settings
-						ImGui::Text("Min Damage");
+						ImGui::Text(u8"最小伤害");
 						ImGui::PushItemWidth(280.f);
 						ImGui::SliderFloat(("Snipers##gay"), &g_Options.Ragebot.MinimumDamageSniper, 1.f, 100.f, "%.2f");
 						ImGui::SliderFloat(("Rifles##gay"), &g_Options.Ragebot.MinimumDamageRifle, 1.f, 100.f, "%.2f");
@@ -407,13 +407,13 @@ void RenderInterface() {
 						ImGui::SliderFloat(("SMGs##gay"), &g_Options.Ragebot.MinimumDamageSmg, 1.f, 100.f, "%.2f");
 						ImGui::SliderFloat(("Revolver/Deag##gay"), &g_Options.Ragebot.MinimumDamageRevolver, 1.f, 100.f, "%.2f");
 
-						ImGui::Checkbox(XorStr("Hitchance"), &g_Options.Ragebot.Hitchance);
-						ImGui::SliderFloat(XorStr("Snipers"), &g_Options.Ragebot.HitchanceSniper, 0.f, 100.f, "%.1f");
-						ImGui::SliderFloat(XorStr("Rifles"), &g_Options.Ragebot.HitchanceRifle, 0.f, 100.f, "%.1f");
-						ImGui::SliderFloat(XorStr("Pistols"), &g_Options.Ragebot.HitchancePistol, 0.f, 100.f, "%.1f");
-						ImGui::SliderFloat(XorStr("SMGs"), &g_Options.Ragebot.HitchanceSmgs, 0.f, 100.f, "%.1f");
-						ImGui::SliderFloat(XorStr("Heavies"), &g_Options.Ragebot.HitchanceHeavy, 0.f, 100.f, "%.1f");
-						ImGui::SliderFloat(XorStr("Revolver / Deagle"), &g_Options.Ragebot.HitchanceRevolver, 0.f, 100.f, "%.1f");
+						ImGui::Checkbox(XorStr(u8"命中率"), &g_Options.Ragebot.Hitchance);
+						ImGui::SliderFloat(XorStr(u8"狙击"), &g_Options.Ragebot.HitchanceSniper, 0.f, 100.f, "%.1f");
+						ImGui::SliderFloat(XorStr(u8"步枪"), &g_Options.Ragebot.HitchanceRifle, 0.f, 100.f, "%.1f");
+						ImGui::SliderFloat(XorStr(u8"手枪"), &g_Options.Ragebot.HitchancePistol, 0.f, 100.f, "%.1f");
+						ImGui::SliderFloat(XorStr(u8"冲锋枪"), &g_Options.Ragebot.HitchanceSmgs, 0.f, 100.f, "%.1f");
+						ImGui::SliderFloat(XorStr(u8"重武器"), &g_Options.Ragebot.HitchanceHeavy, 0.f, 100.f, "%.1f");
+						ImGui::SliderFloat(XorStr(u8"左轮 / 沙鹰"), &g_Options.Ragebot.HitchanceRevolver, 0.f, 100.f, "%.1f");
 					}
 					ImGui::EndChild();
 
@@ -421,31 +421,31 @@ void RenderInterface() {
 					ImGui::BeginChild("##ragebot shit.", ImVec2(310.f, 288.f));
 					{
 						ImGui::PushItemWidth(184);
-						ImGui::Checkbox(XorStr("Resolver"), &g_Options.Ragebot.Resolver);
-						ImGui::Text(XorStr("Bruteforce after X bullets:"));
-						ImGui::SliderFloat(XorStr("Shots: "), &g_Options.Ragebot.bruteAfterX, 0, 10, "%1.f");
+						ImGui::Checkbox(XorStr(u8"解析器"), &g_Options.Ragebot.Resolver);
+						ImGui::Text(XorStr(u8"拆解之后X轴子弹:"));
+						ImGui::SliderFloat(XorStr(u8"射击: "), &g_Options.Ragebot.bruteAfterX, 0, 10, "%1.f");
 
 						ImGui::Separator();
 						
-						ImGui::Checkbox(XorStr("Rage BackTrack"), &g_Options.Ragebot.PosAdjust);
-						ImGui::Checkbox(XorStr("Fakelag Patch"), &g_Options.Ragebot.FakeLagFix);
+						ImGui::Checkbox(XorStr(u8"暴力回溯"), &g_Options.Ragebot.PosAdjust);
+						ImGui::Checkbox(XorStr(u8"假延迟补偿"), &g_Options.Ragebot.FakeLagFix);
 
 						ImGui::Separator();
 
-						ImGui::Checkbox(XorStr("Edge"), &g_Options.Ragebot.Edge);
-						ImGui::Checkbox(XorStr("AntiAim on knife"), &g_Options.Ragebot.KnifeAA);
+						ImGui::Checkbox(XorStr(u8"边缘"), &g_Options.Ragebot.Edge);
+						ImGui::Checkbox(XorStr(u8"反自瞄刀"), &g_Options.Ragebot.KnifeAA);
 
 						ImGui::Separator();
 
-						ImGui::Checkbox(XorStr("Enable FakeLag"), &g_Options.Ragebot.FakeLag);
-						ImGui::SliderInt(XorStr("Amount"), &g_Options.Ragebot.FakeLagAmt, 0, 15, "%1.f");
+						ImGui::Checkbox(XorStr(u8"启用假延迟"), &g_Options.Ragebot.FakeLag);
+						ImGui::SliderInt(XorStr(u8"数量"), &g_Options.Ragebot.FakeLagAmt, 0, 15, "%1.f");
 
 						ImGui::Separator();
 
-						ImGui::Text(XorStr("Rage On Key"));
+						ImGui::Text(XorStr(u8"暴力键"));
 						ImGui::SameLine();
 						ImGui::Hotkey(XorStr("##gay 1"), &g_Options.Ragebot.KeyPress);
-						ImGui::Text(XorStr("BAIM Key ;)  "));
+						ImGui::Text(XorStr("BAIM 键 ;)  "));
 						ImGui::SameLine();
 						ImGui::Hotkey(XorStr("##biggest gay"), &g_Options.Ragebot.BAIMkey);
 						ImGui::Hotkey(XorStr("##dawjbdkajwbwd"), &g_Options.Ragebot.flipkey);
@@ -460,19 +460,19 @@ void RenderInterface() {
 					{
 						static int movementtype = 0;
 						
-						if (ImGui::Button("Run", ImVec2(55, 25)))
+						if (ImGui::Button(u8"跑", ImVec2(55, 25)))
 							movementtype = 0;
 						ImGui::SameLine();
-						if (ImGui::Button("Walk", ImVec2(55, 25)))
+						if (ImGui::Button(u8"走", ImVec2(55, 25)))
 							movementtype = 1;
 						ImGui::SameLine();
-						if (ImGui::Button("Stand", ImVec2(55, 25)))
+						if (ImGui::Button(u8"站", ImVec2(55, 25)))
 							movementtype = 2;
 						ImGui::SameLine();
-						if (ImGui::Button("Fake", ImVec2(55, 25)))
+						if (ImGui::Button(u8"假", ImVec2(55, 25)))
 							movementtype = 3;
 						ImGui::SameLine();
-						if (ImGui::Button("Crouch", ImVec2(55, 25)))
+						if (ImGui::Button(u8"蹲", ImVec2(55, 25)))
 							movementtype = 4;
 
 
@@ -494,25 +494,25 @@ void RenderInterface() {
 							
 							if (ImGui::Button("Presets", ImVec2(150, 25))) aatabtype = 0;
 							ImGui::SameLine();
-							if (ImGui::Button("Self Made", ImVec2(150, 25))) aatabtype = 1;
+							if (ImGui::Button(u8"自身模式", ImVec2(150, 25))) aatabtype = 1;
 
 							if (aatabtype == 0) //run_
 							{
-								ImGui::Checkbox(XorStr("Enable"), &g_Options.Ragebot.run_PreAAs);
+								ImGui::Checkbox(XorStr(u8"启用"), &g_Options.Ragebot.run_PreAAs);
 								ImGui::SameLine();
-								ImGui::Checkbox("fakehead", &g_Options.Ragebot.run_fakehead);
-								ImGui::Combo(XorStr("Pitch"), &g_Options.Ragebot.run_Pitch, antiaimpitch, ARRAYSIZE(antiaimpitch));
-								ImGui::SliderFloat(XorStr("Pitch Adder: "), &g_Options.Ragebot.run_PitchAdder, -180, 180, "%1.f");
+								ImGui::Checkbox(u8"假头", &g_Options.Ragebot.run_fakehead);
+								ImGui::Combo(XorStr(u8"补偿"), &g_Options.Ragebot.run_Pitch, antiaimpitch, ARRAYSIZE(antiaimpitch));
+								ImGui::SliderFloat(XorStr(u8"补偿加法器: "), &g_Options.Ragebot.run_PitchAdder, -180, 180, "%1.f");
 								ImGui::Separator();
-								ImGui::Combo(XorStr("Yaw"), &g_Options.Ragebot.run_YawTrue, antiaimyawtrue, ARRAYSIZE(antiaimyawtrue));
-								ImGui::SliderFloat(XorStr("Real Adder: "), &g_Options.Ragebot.run_YawTrueAdder, -180, 180, "%1.f");
+								ImGui::Combo(XorStr(u8"偏航"), &g_Options.Ragebot.run_YawTrue, antiaimyawtrue, ARRAYSIZE(antiaimyawtrue));
+								ImGui::SliderFloat(XorStr(u8"真实加法器: "), &g_Options.Ragebot.run_YawTrueAdder, -180, 180, "%1.f");
 								ImGui::Separator();
-								ImGui::Combo(XorStr("Fake-Yaw"), &g_Options.Ragebot.run_YawFake, antiaimyawfake, ARRAYSIZE(antiaimyawfake));
-								ImGui::SliderFloat(XorStr("Fake Adder: "), &g_Options.Ragebot.run_YawFakeAdder, -180, 180, "%1.f");
+								ImGui::Combo(XorStr(u8"假偏航"), &g_Options.Ragebot.run_YawFake, antiaimyawfake, ARRAYSIZE(antiaimyawfake));
+								ImGui::SliderFloat(XorStr(u8"假加法器: "), &g_Options.Ragebot.run_YawFakeAdder, -180, 180, "%1.f");
 							}
 							else if (aatabtype == 1)
 							{
-								ImGui::Checkbox(XorStr("Enable"), &g_Options.Ragebot.run_BuilderAAs);
+								ImGui::Checkbox(XorStr(u8"启用"), &g_Options.Ragebot.run_BuilderAAs);
 								ImGui::SliderFloat(XorStr("Pitch Angle: "), &g_Options.Ragebot.run_BuilderPitch, -89, 89, "%1.f");
 								ImGui::SliderFloat(XorStr("Real Angle: "), &g_Options.Ragebot.run_BuilderReal, -180, 180, "%1.f");
 								ImGui::SliderFloat(XorStr("Fake Angle: "), &g_Options.Ragebot.run_BuilderFake, -180, 180, "%1.f");
@@ -569,9 +569,9 @@ void RenderInterface() {
 
 							if (aatabtype2 == 0) //stand_
 							{
-								ImGui::Checkbox(XorStr("Enable"), &g_Options.Ragebot.stand_PreAAs);
+								ImGui::Checkbox(XorStr(u8"启用"), &g_Options.Ragebot.stand_PreAAs);
 								ImGui::SameLine();
-								ImGui::Checkbox("fakehead", &g_Options.Ragebot.stand_fakehead);
+								ImGui::Checkbox(u8"假头", &g_Options.Ragebot.stand_fakehead);
 								ImGui::Combo(XorStr("Pitch"), &g_Options.Ragebot.stand_Pitch, antiaimpitch, ARRAYSIZE(antiaimpitch));
 								ImGui::SliderFloat(XorStr("Pitch Adder: "), &g_Options.Ragebot.stand_PitchAdder, -180, 180, "%1.f");
 								ImGui::Separator();
@@ -585,7 +585,7 @@ void RenderInterface() {
 							else if (aatabtype2 == 1)
 							{
 
-								ImGui::Checkbox(XorStr("Enable"), &g_Options.Ragebot.stand_BuilderAAs);
+								ImGui::Checkbox(XorStr("启用"), &g_Options.Ragebot.stand_BuilderAAs);
 								ImGui::SliderFloat(XorStr("Pitch Angle: "), &g_Options.Ragebot.stand_BuilderPitch, -89, 89, "%1.f");
 								ImGui::SliderFloat(XorStr("Real Angle: "), &g_Options.Ragebot.stand_BuilderReal, -180, 180, "%1.f");
 								ImGui::SliderFloat(XorStr("Fake Angle: "), &g_Options.Ragebot.stand_BuilderFake, -180, 180, "%1.f");
@@ -607,9 +607,9 @@ void RenderInterface() {
 
 							if (aatabtype3 == 0) //fwalk_
 							{
-								ImGui::Checkbox(XorStr("Enable"), &g_Options.Ragebot.fwalk_PreAAs);
+								ImGui::Checkbox(XorStr("启用"), &g_Options.Ragebot.fwalk_PreAAs);
 								ImGui::SameLine();
-								ImGui::Checkbox("fakehead", &g_Options.Ragebot.fwalk_fakehead);
+								ImGui::Checkbox("假头", &g_Options.Ragebot.fwalk_fakehead);
 								ImGui::Combo(XorStr("Pitch"), &g_Options.Ragebot.fwalk_Pitch, antiaimpitch, ARRAYSIZE(antiaimpitch));
 								ImGui::SliderFloat(XorStr("Pitch Adder: "), &g_Options.Ragebot.fwalk_PitchAdder, -180, 180, "%1.f");
 								ImGui::Separator();
@@ -621,7 +621,7 @@ void RenderInterface() {
 							}
 							else if (aatabtype3 == 1)
 							{
-								ImGui::Checkbox(XorStr("Enable"), &g_Options.Ragebot.fwalk_BuilderAAs);
+								ImGui::Checkbox(XorStr("启用"), &g_Options.Ragebot.fwalk_BuilderAAs);
 								ImGui::SliderFloat(XorStr("Pitch Angle: "), &g_Options.Ragebot.fwalk_BuilderPitch, -89, 89, "%1.f");
 								ImGui::SliderFloat(XorStr("Real Angle: "), &g_Options.Ragebot.fwalk_BuilderReal, -180, 180, "%1.f");
 								ImGui::SliderFloat(XorStr("Fake Angle: "), &g_Options.Ragebot.fwalk_BuilderFake, -180, 180, "%1.f");
@@ -633,17 +633,17 @@ void RenderInterface() {
 							}
 							break;
 						case 4:
-							ImGui::Checkbox(XorStr("AA On Crouch"), &g_Options.Ragebot.AA_onCrouch);
+							ImGui::Checkbox(XorStr(u8"AA 蹲伏"), &g_Options.Ragebot.AA_onCrouch);
 							
 
 							
-							if (ImGui::Button("Presets", ImVec2(150, 25))) aatabtype4 = 0;
+							if (ImGui::Button(u8"预置", ImVec2(150, 25))) aatabtype4 = 0;
 							ImGui::SameLine();
-							if (ImGui::Button("Self Made", ImVec2(150, 25))) aatabtype4 = 1;
+							if (ImGui::Button(u8"自身模式", ImVec2(150, 25))) aatabtype4 = 1;
 
 							if (aatabtype4 == 0) //crouch_
 							{
-								ImGui::Checkbox(XorStr("Enable"), &g_Options.Ragebot.crouch_PreAAs);
+								ImGui::Checkbox(XorStr(u8"启用"), &g_Options.Ragebot.crouch_PreAAs);
 								ImGui::SameLine();
 								ImGui::Checkbox("fakehead", &g_Options.Ragebot.crouch_fakehead);
 								ImGui::Combo(XorStr("Pitch"), &g_Options.Ragebot.crouch_Pitch, antiaimpitch, ARRAYSIZE(antiaimpitch));
@@ -657,7 +657,7 @@ void RenderInterface() {
 							}
 							else if (aatabtype4 == 1)
 							{
-								ImGui::Checkbox(XorStr("Enable"), &g_Options.Ragebot.crouch_BuilderAAs);
+								ImGui::Checkbox(XorStr(u8"启用"), &g_Options.Ragebot.crouch_BuilderAAs);
 								ImGui::SliderFloat(XorStr("Pitch Angle: "), &g_Options.Ragebot.crouch_BuilderPitch, -89, 89, "%1.f");
 								ImGui::SliderFloat(XorStr("Real Angle: "), &g_Options.Ragebot.crouch_BuilderReal, -180, 180, "%1.f");
 								ImGui::SliderFloat(XorStr("Fake Angle: "), &g_Options.Ragebot.crouch_BuilderFake, -180, 180, "%1.f");
@@ -697,34 +697,34 @@ void RenderInterface() {
 						switch (legitguntab)
 						{
 						case 0:
-							ImGui::Text("Snipers");
+							ImGui::Text(u8"狙击");
 							ImGui::PushItemWidth(184);
 							ImGui::Hotkey(XorStr("Key##2"), &g_Options.Legitbot.SniperKey);
-							ImGui::SliderFloat(XorStr("Smooth##2"), &g_Options.Legitbot.SniperSmooth, 1.00f, 100.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("FOV##2"), &g_Options.Legitbot.Sniperfov, 0.00f, 30.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("Min RCS##2"), &g_Options.Legitbot.sniper_recoil_min, 1.00f, 100.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("Max RCS##2"), &g_Options.Legitbot.sniper_recoil_max, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"光滑##2"), &g_Options.Legitbot.SniperSmooth, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"FOV##2"), &g_Options.Legitbot.Sniperfov, 0.00f, 30.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"最小压枪##2"), &g_Options.Legitbot.sniper_recoil_min, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"最大压枪##2"), &g_Options.Legitbot.sniper_recoil_max, 1.00f, 100.00f, "%.2f");
 							break;
 						case 1:
-							ImGui::Text("Rifles");
+							ImGui::Text(u8"步枪");
 							ImGui::PushItemWidth(184);
 							ImGui::Hotkey(XorStr("Key##0"), &g_Options.Legitbot.MainKey);
-							ImGui::SliderFloat(XorStr("Smooth##0"), &g_Options.Legitbot.MainSmooth, 1.00f, 100.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("FOV##0"), &g_Options.Legitbot.Mainfov, 0.00f, 30.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("Min RCS##0"), &g_Options.Legitbot.main_recoil_min, 1.00f, 100.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("Max RCS##0"), &g_Options.Legitbot.main_recoil_max, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"光滑##0"), &g_Options.Legitbot.MainSmooth, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"FOV##0"), &g_Options.Legitbot.Mainfov, 0.00f, 30.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"最小压枪##0"), &g_Options.Legitbot.main_recoil_min, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"最大压枪##0"), &g_Options.Legitbot.main_recoil_max, 1.00f, 100.00f, "%.2f");
 							ImGui::Separator();
-							ImGui::Checkbox(XorStr("Legit Backtrack"), &g_Options.Legitbot.backtrack);
+							ImGui::Checkbox(XorStr(u8"合法回溯"), &g_Options.Legitbot.backtrack);
 							ImGui::SliderFloat(XorStr("Ticks: "), &g_Options.Legitbot.backtrackTicks, 0, 12, "%1.f");
 							break;
 						case 2:
-							ImGui::Text("Pistols");
+							ImGui::Text(u8"手枪");
 							ImGui::PushItemWidth(184);
 							ImGui::Hotkey(XorStr("Key##1"), &g_Options.Legitbot.PistolKey);
-							ImGui::SliderFloat(XorStr("Smooth##1"), &g_Options.Legitbot.PistolSmooth, 1.00f, 100.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("FOV##1"), &g_Options.Legitbot.Pistolfov, 0.00f, 30.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("Min RCS##1"), &g_Options.Legitbot.pistol_recoil_min, 1.00f, 100.00f, "%.2f");
-							ImGui::SliderFloat(XorStr("Max RCS##1"), &g_Options.Legitbot.pistol_recoil_max, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"光滑##1"), &g_Options.Legitbot.PistolSmooth, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"FOV##1"), &g_Options.Legitbot.Pistolfov, 0.00f, 30.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"最小压枪##1"), &g_Options.Legitbot.pistol_recoil_min, 1.00f, 100.00f, "%.2f");
+							ImGui::SliderFloat(XorStr(u8"最大压枪##1"), &g_Options.Legitbot.pistol_recoil_max, 1.00f, 100.00f, "%.2f");
 							break;							
 						}
 					}
@@ -740,43 +740,43 @@ void RenderInterface() {
 				{
 					ImGui::BeginChild("##visuals 1", ImVec2(310.f, 580.f));
 					{
-						ImGui::Text("Visuals");
-						ImGui::Checkbox(XorStr("Team ESP"), &g_Options.Visuals.TeamESP);
+						ImGui::Text(u8"视觉");
+						ImGui::Checkbox(XorStr(u8"队伍 ESP"), &g_Options.Visuals.TeamESP);
 						ImGui::SameLine();
 						ImGui::MyColorEdit3("##ESP", g_Options.Colors.TeamESP, 1 << 7);
-						ImGui::Checkbox(XorStr("Box"), &g_Options.Visuals.Box);
+						ImGui::Checkbox(XorStr(u8"盒子"), &g_Options.Visuals.Box);
 						ImGui::SameLine();
 						ImGui::MyColorEdit3("##EdddSP", g_Options.Colors.EnemyESP, 1 << 7);
 						ImGui::Combo("##boxkek", &g_Options.Visuals.BoxType, "Full\0\rCorners\0\r3D\0\0", -1);
-						ImGui::Checkbox(XorStr("Skeleton"), &g_Options.Visuals.Skeleton);
+						ImGui::Checkbox(XorStr(u8"骨架"), &g_Options.Visuals.Skeleton);
 						
-						ImGui::Checkbox(XorStr("Grenade Prediction"), &g_Options.Visuals.GrenadePrediction);
+						ImGui::Checkbox(XorStr(u8"手榴弹预测"), &g_Options.Visuals.GrenadePrediction);
 
 						ImGui::Spacing();
 						ImGui::Separator();
-						ImGui::Text("Player Statistics.");
+						ImGui::Text(u8"玩家统计.");
 
-						ImGui::Checkbox(XorStr("Name"), &g_Options.Visuals.Name);
-						ImGui::Checkbox(XorStr("Weapon"), &g_Options.Visuals.Weapon);
+						ImGui::Checkbox(XorStr(u8"名字"), &g_Options.Visuals.Name);
+						ImGui::Checkbox(XorStr(u8"武器"), &g_Options.Visuals.Weapon);
 						ImGui::Combo("##wpnkek", &g_Options.Visuals.wpnmode, "Name\0\rIcon\0\0", -1);
-						ImGui::Checkbox(XorStr("Armor"), &g_Options.Visuals.Armor);
-						ImGui::Checkbox(XorStr("Health"), &g_Options.Visuals.health);
-						ImGui::Checkbox(XorStr("Money"), &g_Options.Visuals.Money);
+						ImGui::Checkbox(XorStr(u8"盔甲"), &g_Options.Visuals.Armor);
+						ImGui::Checkbox(XorStr(u8"生命"), &g_Options.Visuals.health);
+						ImGui::Checkbox(XorStr(u8"钱"), &g_Options.Visuals.Money);
 						ImGui::Checkbox(XorStr("Callout"), &g_Options.Visuals.Callout);
 
 
-						ImGui::Checkbox(XorStr("Enemy State"), &g_Options.Visuals.Flashed);
-						ImGui::Checkbox(XorStr("Distance"), &g_Options.Visuals.Distance);
+						ImGui::Checkbox(XorStr(u8"敌人状态"), &g_Options.Visuals.Flashed);
+						ImGui::Checkbox(XorStr(u8"距离"), &g_Options.Visuals.Distance);
 
 						ImGui::Spacing();
 						ImGui::Spacing();
 						ImGui::Separator();
 						ImGui::Spacing();
 
-						ImGui::Checkbox(XorStr("Aimlines"), &g_Options.Visuals.AimLine);
-						ImGui::Checkbox(XorStr("Angle Lines"), &g_Options.Visuals.angleLines);
-						ImGui::Checkbox(XorStr("Awall Indicator"), &g_Options.Visuals.DrawAwall);
-						ImGui::Checkbox(XorStr("LBY Indicator"), &g_Options.Visuals.LBYIndicator);
+						ImGui::Checkbox(XorStr(u8"瞄准线"), &g_Options.Visuals.AimLine);
+						ImGui::Checkbox(XorStr(u8"角度线"), &g_Options.Visuals.angleLines);
+						ImGui::Checkbox(XorStr(u8"Awall 指示"), &g_Options.Visuals.DrawAwall);
+						ImGui::Checkbox(XorStr(u8"LBY 指示"), &g_Options.Visuals.LBYIndicator);
 
 
 
@@ -787,29 +787,29 @@ void RenderInterface() {
 
 					ImGui::BeginChild("##visuals 2", ImVec2(310.f, 580.f));
 					{
-						ImGui::Text("Visuals Continued");
+						ImGui::Text(u8"视觉 继续");
 
-						ImGui::Checkbox(XorStr("Nightmode"), &g_Options.Misc.nightMode);
-						ImGui::Checkbox(XorStr("Thirdperson"), &g_Options.Visuals.ThirdPerson);
+						ImGui::Checkbox(XorStr(u8"夜晚模式"), &g_Options.Misc.nightMode);
+						ImGui::Checkbox(XorStr(u8"第三人称"), &g_Options.Visuals.ThirdPerson);
 						ImGui::Hotkey(XorStr("Key##273"), &g_Options.Visuals.TPKey);
 						//ImGui::SliderFloat(XorStr("##tpdist"), &g_Options.Visuals.tpdist, 50.f, 500.f, "%.0f");
-						ImGui::Checkbox(XorStr("Hitmarker"), &g_Options.Visuals.Hitmarker);
-						ImGui::Text(XorStr("HitSound:"));
+						ImGui::Checkbox(XorStr(u8"击中标记"), &g_Options.Visuals.Hitmarker);
+						ImGui::Text(XorStr(u8"击中声音:"));
 						ImGui::SameLine();
 						ImGui::Combo(XorStr("##anullar destruction"), &g_Options.Visuals.Hitsound, HitmarkSound, ARRAYSIZE(HitmarkSound));
-						ImGui::Checkbox(XorStr("Event Log (Beta)"), &g_Options.Visuals.EventLog);
+						ImGui::Checkbox(XorStr(u8"事件日志 (Beta)"), &g_Options.Visuals.EventLog);
 
 						ImGui::PushItemWidth(184);
 						ImGui::SliderFloat(XorStr("FOV"), &g_Options.Visuals.FOVChanger, 0, 60, "%.0f");
-						ImGui::SliderFloat(XorStr("VFOV"), &g_Options.Visuals.viewmodelChanger, 0, 130, "%.0f");
+						ImGui::SliderFloat(XorStr(u8"视图FOV"), &g_Options.Visuals.viewmodelChanger, 0, 130, "%.0f");
 						//ImGui::Checkbox(XorStr("Angle Lines"), &g_Options.Visuals.angleLines);
-						ImGui::Checkbox(XorStr("Bomb ESP"), &g_Options.Visuals.Bomb);
-						ImGui::Checkbox(XorStr("Grenades"), &g_Options.Visuals.Grenades);
-						ImGui::Checkbox(XorStr("Resolve Mode"), &g_Options.Visuals.resolveMode);
-						ImGui::Checkbox(XorStr("Dropped Weapons"), &g_Options.Visuals.Droppedguns);
-						ImGui::Checkbox(XorStr("No Smoke"), &g_Options.Visuals.NoSmoke);
-						ImGui::Checkbox(XorStr("No Flash"), &g_Options.Visuals.NoFlash);
-						ImGui::Checkbox(XorStr("No Scope"), &g_Options.Visuals.noscopeborder);
+						ImGui::Checkbox(XorStr(u8"炸弹透视"), &g_Options.Visuals.Bomb);
+						ImGui::Checkbox(XorStr(u8"手榴弹"), &g_Options.Visuals.Grenades);
+						ImGui::Checkbox(XorStr(u8"解析器模式"), &g_Options.Visuals.resolveMode);
+						ImGui::Checkbox(XorStr(u8"掉落的武器"), &g_Options.Visuals.Droppedguns);
+						ImGui::Checkbox(XorStr(u8"无烟"), &g_Options.Visuals.NoSmoke);
+						ImGui::Checkbox(XorStr(u8"无闪"), &g_Options.Visuals.NoFlash);
+						ImGui::Checkbox(XorStr(u8"无范围"), &g_Options.Visuals.noscopeborder);
 
 					}
 					ImGui::EndChild();
@@ -818,34 +818,34 @@ void RenderInterface() {
 				{
 					ImGui::BeginChild("##misc options", ImVec2(310.f, 580.f));
 					{
-						ImGui::Text("Misc:");
+						ImGui::Text(u8"杂项:");
 
-						if (ImGui::Button(XorStr("Unhook")))
+						if (ImGui::Button(XorStr(u8"卸载hook")))
 						{
 							g_Engine->ClientCmd_Unrestricted("cl_mouseenable 1");
 							unload = true;
 						}
-						ImGui::Checkbox("Anti-Untrusted", &g_Options.Misc.antiuntrusted);
+						ImGui::Checkbox(u8"反不可信", &g_Options.Misc.antiuntrusted);
 						
-						ImGui::Combo(XorStr("Clantag"), &g_Options.Misc.clantag_SLN, ClanTags, ARRAYSIZE(ClanTags));
-						ImGui::Checkbox("Ayyware Crasher", &g_Options.Ragebot.ayywarecrasher);
-						ImGui::Checkbox("Name Spam", &g_Options.Misc.namespam);
+						ImGui::Combo(XorStr(u8"组名"), &g_Options.Misc.clantag_SLN, ClanTags, ARRAYSIZE(ClanTags));
+						ImGui::Checkbox(u8"Ayyware Crasher", &g_Options.Ragebot.ayywarecrasher);
+						ImGui::Checkbox(u8"垃圾名字", &g_Options.Misc.namespam);
 						
-						ImGui::Checkbox(XorStr("Bunny Hop"), &g_Options.Misc.Bhop);
-						ImGui::Checkbox(XorStr("AutoStrafe"), &g_Options.Misc.AutoStrafe);
+						ImGui::Checkbox(XorStr(u8"兔子跳"), &g_Options.Misc.Bhop);
+						ImGui::Checkbox(XorStr(u8"自动扫射"), &g_Options.Misc.AutoStrafe);
 
-						ImGui::Checkbox(XorStr("moonwalk"), &g_Options.Misc.moonwalk);
-						ImGui::Checkbox(XorStr("spookwalk"), &g_Options.Misc.spookwalk);
+						ImGui::Checkbox(XorStr(u8"太空步"), &g_Options.Misc.moonwalk);
+						ImGui::Checkbox(XorStr(u8"幽灵走"), &g_Options.Misc.spookwalk);
 
-						ImGui::Checkbox(XorStr("fakewalk"), &g_Options.Misc.fakewalk);
-						ImGui::Hotkey(XorStr("##fakewalk key"), &g_Options.Misc.fakewalkkey);
+						ImGui::Checkbox(XorStr(u8"假走"), &g_Options.Misc.fakewalk);
+						ImGui::Hotkey(XorStr(u8"##fakewalk key"), &g_Options.Misc.fakewalkkey);
 
 
-						ImGui::Text("Config");
-						ImGui::Combo(("File"), &g_Options.Menu.ConfigFile, configFiles, ARRAYSIZE(configFiles));
-						if (ImGui::Button("Save Config")) Config->Save();
+						ImGui::Text(u8"配置");
+						ImGui::Combo((u8"文件"), &g_Options.Menu.ConfigFile, configFiles, ARRAYSIZE(configFiles));
+						if (ImGui::Button(u8"保存配置")) Config->Save();
 
-						if (ImGui::Button("Load Config")) Config->Load();
+						if (ImGui::Button(u8"载入配置")) Config->Load();
 
 					}
 					ImGui::EndChild();
@@ -854,7 +854,7 @@ void RenderInterface() {
 
 					ImGui::BeginChild("##misc options 2", ImVec2(310.f, 580.f));
 					{
-						ImGui::Text("Misc Continued:");
+						ImGui::Text(u8"杂项 继续:");
 						//more visual shit
 
 					}

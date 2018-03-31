@@ -18,7 +18,7 @@ void RenderDefault(IDirect3DDevice9* pDevice)
 
 	auto& style = ImGui::GetStyle();
 
-	fDefault = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\Tahoma.ttf", 16.0f);
+	fDefault = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\simfang.ttf", 18.0f,0,io.Fonts->GetGlyphRangesChinese());
 	fskeet = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\skrrtmenufont.ttf", 55.0f);
 	fbadcache = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\badcache.ttf", 55.0f);
 	guns = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\astriumwep.ttf", 36.0f);
