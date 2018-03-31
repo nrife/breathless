@@ -246,7 +246,7 @@ public:
 	void GetModelMaterials(const model_t *model, int count, IMaterial** ppMaterial)
 	{
 		typedef void *(__thiscall* oGetModelMaterials)(PVOID, const model_t*, int, IMaterial**);
-		call_vfunc<oGetModelMaterials>(this, 17)(this, model, count, ppMaterial);
+		call_vfunc<oGetModelMaterials>(this, 19)(this, model, count, ppMaterial);
 	}
 
 	studiohdr_t* GetStudiomodel(const model_t* mod)
